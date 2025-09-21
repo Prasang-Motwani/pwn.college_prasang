@@ -4,9 +4,9 @@ To invoke the hello command
 
 ## Solution:
 
-Connected my ubuntu terminal to pwn.college host using ssh command
-After connecting I typed the hello command in the terminal 
-This was the asked challenege and on completing I got the flag
+Connected my ubuntu terminal to pwn.college host using ssh command.<br>
+After connecting I typed the hello command in the terminal.<br> 
+This was the asked challenege and on completing I got the flag.<br>
 
 
 ```sh
@@ -23,8 +23,8 @@ pwn.college{0e9QujOjmIdmozqiGW-iQRA4hJN.QX3YjM1wyNzAzNzEzW}
 - [link 1](https://pwn.college/linux-luminarium/hello/)
 
 ### Notes:
-While solving this challenge I learnt how to connect my desktop ubuntu to the host pwn.college
-I learnt what a command is and how it is run
+While solving this challenge I learnt how to connect my desktop ubuntu to the host pwn.college<br>
+I learnt what a command is and how it is run.
 
 
 
@@ -33,10 +33,10 @@ I learnt what a command is and how it is run
 Run the hello command with an argument "hacker"
 
 ## Solution:
-After starting this challenge
-I typed hello then typed a single word "hacker" acter it
-I did this cause first we write the command and the subsequent words are arguments for it
-In this challenge only a single argument "hacker" was asked
+After starting this challenge;<br>
+I typed hello then typed a single word "hacker"<br>
+I did this because first we write the command and the subsequent words are arguments for it<br>
+In this challenge only a single argument "hacker" was asked<br>
 
 ```sh
 hacker@hello~intro-to-arguments:~$ hello hackers
@@ -50,9 +50,9 @@ pwn.college{cjP5MboIa6pyP2AQUTVqj9wB403.QX4YjM1wyNzAzNzEzW}
 - [link 1](https://pwn.college/linux-luminarium/hello/)
 
 ### Notes:
-I learnt what an argument is ie additional data passed to the command
-The first word is the command and the subsequent words are arguments
-Here only one argument "hacker" was asked to be added after the hello command
+I learnt what an argument is ie additional data passed to the command<br>
+The first word is the command and the subsequent words are arguments<br>
+Here only one argument "hacker" was asked to be added after the hello command<br>
 
 
 
@@ -63,8 +63,8 @@ Bring up a terminal, hit the up arrow, and grab it.
 
 ## Solution:
 
-I pressed the upwards arrow on my keyboard
-The flag appeared on my terminal to be grabbed and thats what I did
+I pressed the upwards arrow key on my keyboard<br>
+The flag appeared on my terminal to be grabbed and thats what I did<br>
 
 ```sh
 hacker@hello~command-history:~$ the flag is pwn.college{QNBfhOym3W6fuqruW5d-Qrd9rCP.0lNzEzNxwyNzAzNzEzW}
@@ -80,10 +80,10 @@ pwn.college{QNBfhOym3W6fuqruW5d-Qrd9rCP.0lNzEzNxwyNzAzNzEzW}
 
 ### Notes
 
-In this challenge I learnt that the shell saves the previous commands that we invoked or typed in the past
-We can navigate through them using the up/down arrow keys
-This is helpful as if we have to repeat some commands in a program then we can just access the old one in our history using up and down keys
-This will save us alot of time
+In this challenge I learnt that the shell saves the previous commands that we invoked or typed in the past<br>
+We can navigate through them using the up/down arrow keys<br>
+This is helpful as if we have to repeat some commands in a program then we can just access the old one in our history using up and down keys<br>
+This will save us alot of time<br>
 
   
 
