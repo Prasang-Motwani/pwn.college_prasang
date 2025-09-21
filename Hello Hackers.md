@@ -19,10 +19,10 @@ hacker@hello~intro-to-commands:~$ hello
 ```
 pwn.college{0e9QujOjmIdmozqiGW-iQRA4hJN.QX3YjM1wyNzAzNzEzW}
 ```
-## References:
+### References:
 - [link 1](https://pwn.college/linux-luminarium/hello/)
 
-## Notes:
+### Notes:
 While solving this challenge I learnt how to connect my desktop ubuntu to the host pwn.college
 I learnt what a command is and how it is run
 
@@ -46,17 +46,17 @@ hacker@hello~intro-to-arguments:~$ hello hackers
 ```
 pwn.college{cjP5MboIa6pyP2AQUTVqj9wB403.QX4YjM1wyNzAzNzEzW}
 ```
-## References:
+### References:
 - [link 1](https://pwn.college/linux-luminarium/hello/)
 
-## Notes:
+### Notes:
 I learnt what an argument is ie additional data passed to the command
 The first word is the command and the subsequent words are arguments
 Here only one argument "hacker" was asked to be added after the hello command
 
 
 
-## Command History
+# Command History
 
 In this challenge we will  inject the flag into my history. 
 Bring up a terminal, hit the up arrow, and grab it.
@@ -75,10 +75,10 @@ hacker@hello~command-history:~$ the flag is pwn.college{QNBfhOym3W6fuqruW5d-Qrd9
 pwn.college{QNBfhOym3W6fuqruW5d-Qrd9rCP.0lNzEzNxwyNzAzNzEzW}
 ```
 
-## References
+### References
 - [link 1](https://pwn.college/linux-luminarium/hello/)
 
-## Notes
+### Notes
 
 In this challenge I learnt that the shell saves the previous commands that we invoked or typed in the past
 We can navigate through them using the up/down arrow keys
