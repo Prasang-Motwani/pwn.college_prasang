@@ -20,11 +20,11 @@ pwn.college{gDXqAS_YxIyiTvhTYQ8ooGTJXiZ.QX4cTO0wyNzAzNzEzW}
 -[link 1](https://pwn.college/linux-luminarium/paths/)
 
 ### Notes:
-In this challenge I learnt:<br>
+<ul>In this challenge I learnt:<br>
 The linux filesystem is a tree<br>
 It has a root written as / which is a directory and every directory can further contain other directories by their path<br>
 A path from the root starts from / and goes futher into the set of directories to be opened to find the desired file<br>
-Every piece of path has another /<br>
+Every piece of path has another /<br></ul>
 
 
 
