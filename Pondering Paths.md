@@ -45,7 +45,7 @@ This challenge again requires you to execute it by invoking its absolute path. Y
 -I was asked to find it's absolute path which I did by doing /challenge/run on the terminal.<br>
 -By doing this the run file got executed which was in the challenge directory which in turn was in the / directry i.e. in the root directory 
 
-### Commands run:
+### Commands used:
 
 ```sh
 hacker@paths~program-and-absolute-paths:~$ /challenge/run
@@ -86,7 +86,7 @@ This challenge will require you to execute the /challenge/run program from a spe
 -The user will change the directory to the one the system gave using the ```cd``` command on the terminal.<br>
 Now run the file and capture the flag.
 
-### Commands run:
+### Commands used:
 
 ```sh
 hacker@paths~position-thy-self:~$ /challenge/run
@@ -131,7 +131,7 @@ This challenge will require you to execute the /challenge/run program from a spe
 -Then use ```cd``` to change the directory to the given one<br>
 -Then use /challenge/run as now the required directory is opened and capture the flag<br>
 
-### Commands run:
+### Commands used:
 
 ```sh
 hacker@paths~position-elsewhere:~$ /challenge/run
@@ -176,7 +176,7 @@ This challenge will require you to execute the /challenge/run program from a spe
 -Then use ```cd``` to change the directory to the given one<br>
 -Then use /challenge/run as now the required directory is opened and capture the flag<br>
 
-### Commands run:
+### Commands used:
 
 ```sh
 hacker@paths~position-yet-elsewhere:~$ /challenge/run
@@ -218,7 +218,7 @@ Let's try it here! You'll need to run /challenge/run using a relative path while
 
 ### Commands used:
 
-```
+```sh
 hacker@paths~implicit-relative-paths-from-:~$ challenge/run
 bash: challenge/run: No such file or directory
 hacker@paths~implicit-relative-paths-from-:~$ /challenge/run
@@ -230,13 +230,13 @@ Correct!!!
 challenge/run is a relative path, invoked from the right directory!
 ```
 
-## Flag
+## Flag:
 
 ```
 pwn.college{g0_CrP3RWJNaZA4QHjBUQwGY2_7.QX5QTN0wyNzAzNzEzW}
 ```
 
-### Notes
+### Notes:
 -Firstly I learnt in this challenge:<br>
 A relative path is any path that does not start at root (i.e., it does not start with /).<br>
 A relative path is interpreted relative to your current working directory (cwd).<br>
@@ -257,6 +257,95 @@ Hence after that I opened / directory and captured the flag
 
 
 # Challenge 7 
+
+This challenge will get you using . in your relative paths.
+
+## Solution:
+
+-In this challenge learning from the previous ones I opened the / directory first.<br>
+-Then I ran the run file in the challenge directory usimg "." in my relative path and hence captured the flag<br>
+
+### Commands used:
+
+```sh
+hacker@paths~explicit-relative-paths-from-:/challenge$ cd /
+hacker@paths~explicit-relative-paths-from-:/$ ./challenge/run
+Correct!!!
+./challenge/run is a relative path, invoked from the right directory!
+```
+
+## Flag:
+
+```
+pwn.college{0dQMXboY8kENjuQCaDDYJVqk2jF.QXwUTN0wyNzAzNzEzW}
+```
+
+### Notes:
+
+-I learnt:<br>
+Previously, our relative path was "naked": it directly specified the directory to descend into from the current directory. In this level, we're going to explore more explicit relative paths.
+
+In most operating systems, including Linux, every directory has two implicit entries that you can reference in paths: . and ... The first, ., refers right to the same directory, so the following absolute paths are all identical to each other:
+
+/challenge
+/challenge/.
+/challenge/./././././././././
+/./././challenge/././
+The following relative paths are also all identical to each other:
+
+challenge
+./challenge
+./././challenge
+challenge/.
+Of course, if your current working directory is /, the above relative paths are equivalent to the above absolute paths.
+
+
+
+# Challenge 8 Implicit Relative Path
+
+In this challenge, we'll learn how to explicitly use relative paths to launch run in this scenario. The way to do this is to tell Linux that you explicitly want to execute a program in the current directory, using . like in the previous levels. Give it a try now!
+
+## Solution:
+
+-Firstly I opened the /challenge directory<br>
+-Then as the challenge told that simply typing ```run``` won't run the file hence I gave its relative path to ensure our Linux OS that I do want to run the ```run``` command and hence I captured the flag<br>
+
+### Commands used:
+
+```sh
+hacker@paths~implicit-relative-path:~$ cd /challenge
+hacker@paths~implicit-relative-path:/challenge$ ./run
+Correct!!!
+./run is a relative path, invoked from the right directory!
+```
+
+## Flag:
+
+```
+pwn.college{cnseZ6MaWSJr8AGiUe3yt70S862.QXxUTN0wyNzAzNzEzW}
+```
+
+## Notes:
+
+I learnt:<br>
+Linux explicitly avoids automatically looking in the current directory when you provide a "naked" path. Consider the following:
+
+```
+hacker@dojo:~$ cd /challenge
+hacker@dojo:/challenge$ run
+```
+This will not invoke /challenge/run. This is actually a safety measure: if Linux searched the current directory for programs every time you entered a naked path, you could accidentally execute programs in your current directory that happened to have the same names as core system utilities! As a result, the above commands will yield the following error:
+
+```
+bash: run: command not found
+```
+<br>
+Hence we used the relative path to to launch ```run``` in this scenario by using ```./run``` intead of ```run``` to ensure Linux OS that yes we do want to launch the ```run``` file in the challenge directory
+
+
+
+# Challenge 9 Home sweet Home
+
 
 
 
