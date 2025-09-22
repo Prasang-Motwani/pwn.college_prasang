@@ -252,7 +252,7 @@ If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. 
 -Now my mistake or the redundant approach I took:<br>
 I should have seen from the get go I am not in the / directory but since that is the root directory I assumed that by default we would be there only that is why firstly I blindly typed challenge/run in the terminal as I thought we are already in the / directory<br>
 When I ran the /challenge/run I knew that would be wrong I just wanted the shell to show me the error and then I realised that I am not in the / directory and then I understood that by default we are in the root directory was wrong<br>
--Hence after that I opened / directory and captured the flag
+Hence after that I opened / directory and captured the flag
 
 
 
