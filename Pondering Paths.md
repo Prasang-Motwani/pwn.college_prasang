@@ -197,8 +197,60 @@ pwn.college{YVJq_MfztpAsv7-jW24IkIMmh10.QX4QTN0wyNzAzNzEzW}
 
 
 
+# Challenge 6 Implicit Relative Paths, from /
+
+Imagine we want to access some file located at /tmp/a/b/my_file.
+
+If my cwd is /, then a relative path to the file is tmp/a/b/my_file.
+If my cwd is /tmp, then a relative path to the file is a/b/my_file.
+If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. refers to the parent directory.
+Let's try it here! You'll need to run /challenge/run using a relative path while having a current working directory of /. For this level, I'll give you a hint. Your relative path starts with the letter c 😊
+
+## Solution:
+
+-Firstly it was quite obvious seeing the hint that the relative path starts from challenge so I tried typing challenge/run but the shell displayed ```bash: challenge/run: No such file or directory```<br>
+-Then on the terminal I tried to run the file as I did in previous 3 challenges thinking that the correct path would be displayed on the shell after showing error and it told that I am not in the / directory<br>
+-So first I opened the / directory using ```cd``` command and then typed challenge/run and captured the flag.
+
+### Commands used:
+
+```
+hacker@paths~implicit-relative-paths-from-:~$ challenge/run
+bash: challenge/run: No such file or directory
+hacker@paths~implicit-relative-paths-from-:~$ /challenge/run
+Incorrect...
+You are not currently in the / directory.
+hacker@paths~implicit-relative-paths-from-:~$ cd /
+hacker@paths~implicit-relative-paths-from-:/$ challenge/run
+Correct!!!
+challenge/run is a relative path, invoked from the right directory!
+```
+
+## Flag
+
+pwn.college{g0_CrP3RWJNaZA4QHjBUQwGY2_7.QX5QTN0wyNzAzNzEzW}
+
+### Notes
+-Firstly I learnt in this challenge:<br>
+A relative path is any path that does not start at root (i.e., it does not start with /).<br>
+A relative path is interpreted relative to your current working directory (cwd).<br>
+Your cwd is the directory that your prompt is currently located at.<br>
+This means how you specify a particular file, depends on where the terminal prompt is located.<br>
+
+Imagine we want to access some file located at /tmp/a/b/my_file.<br>
+
+If my cwd is /, then a relative path to the file is tmp/a/b/my_file.<br>
+If my cwd is /tmp, then a relative path to the file is a/b/my_file.<br>
+If my cwd is /tmp/a/b/c, then a relative path to the file is ../my_file. The .. refers to the parent directory.<br>
+<br>
+-Now my mistake or the redundant approach I took:<br>
+I should have seen from the get go I am not in the / directory but since that is the root directory I assumed that by default we would be there only that is why firstly I blindly typed challenge/run in the terminal as I thought we are already in the / directory<br>
+When I ran the /challenge/run I knew that would be wrong I just wanted the shell to show me the error and then I realised that I am not in the / directory and then I understood that by default we are in the root directory was wrong<br>
+-Hence after that I opened / directory and captured the flag
 
 
+
+# Challenge 7 
 
 
 
