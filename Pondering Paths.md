@@ -146,7 +146,9 @@ hacker@paths~position-elsewhere:/usr/include$ /challenge/run
 
 ## Flag:
 
+```
 pwn.college{weWWMuhMxAgB162XwM_y1rkdQDJ.QX3QTN0wyNzAzNzEzW}
+```
 
 ### Notes:
 -This challenge was very similar to last one the concept and working was same as challenge 3<br>
@@ -189,7 +191,9 @@ Correct!!!
 
 ## Flag:
 
+```
 pwn.college{YVJq_MfztpAsv7-jW24IkIMmh10.QX4QTN0wyNzAzNzEzW}
+```
 
 ### Notes:
 -This challenge was very similar to last one the concept and working was same as challenge 3 and 4<br>
@@ -228,7 +232,9 @@ challenge/run is a relative path, invoked from the right directory!
 
 ## Flag
 
+```
 pwn.college{g0_CrP3RWJNaZA4QHjBUQwGY2_7.QX5QTN0wyNzAzNzEzW}
+```
 
 ### Notes
 -Firstly I learnt in this challenge:<br>
