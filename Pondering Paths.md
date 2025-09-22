@@ -82,7 +82,7 @@ This challenge will require you to execute the /challenge/run program from a spe
 ## Solution:
 
 -After the terminal comes up the user will invoke the path of ```run``` file via ```challenge``` to access the run file.<br>
--An error will show up telling us to change the directory and will tell the path of the directory in which the file is present.<br>
+-An error will show up telling us to change the directory and will tell the path of the directory in which the file is present which is /usr/aarch64-linux-gnu/include/gnu<br>
 -The user will change the directory to the one the system gave using the ```cd``` command on the terminal.<br>
 Now run the file and capture the flag.
 
@@ -127,7 +127,7 @@ This challenge will require you to execute the /challenge/run program from a spe
 ## Solution:
 
 -Firstly on opening the terminal, I tried to run the ```run``` command in the ```challenge``` directory<br>
--Then the shell showed displayed error and displayed the path for the ```run``` file<br>
+-Then the shell displayed error and displayed the absolute path for the ```run``` file which is /usr/include<br>
 -Then use ```cd``` to change the directory to the given one<br>
 -Then use /challenge/run as now the required directory is opened and capture the flag<br>
 
@@ -151,6 +151,51 @@ pwn.college{weWWMuhMxAgB162XwM_y1rkdQDJ.QX3QTN0wyNzAzNzEzW}
 ### Notes:
 -This challenge was very similar to last one the concept and working was same as challenge 3<br>
 -Only difference was that in this challenge separate lines in the terminals were used
+
+
+
+# Challenge 5 Position yet elsewhere
+
+The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the cd (change directory) command and passing a path to it as an argument, as so:
+```
+hacker@dojo:~$ cd /some/new/directory
+hacker@dojo:/some/new/directory$
+```
+This affects the "current working directory" of your process (in this case, the bash shell). Each process has a directory in which it's currently hanging out. The reasons for this will become clear later in the module.
+
+As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.
+
+This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you). You'll need to cd to that directory before rerunning the challenge program.
+
+## Solution:
+
+-Firstly on opening the terminal, I tried to run the ```run``` command in the ```challenge``` directory<br>
+-Then the shell displayed error and displayed the absolute path for the ```run``` file which is /proc/143/fd<br>
+-Then use ```cd``` to change the directory to the given one<br>
+-Then use /challenge/run as now the required directory is opened and capture the flag<br>
+
+### Commands run:
+
+```sh
+hacker@paths~position-yet-elsewhere:~$ /challenge/run
+Incorrect...
+You are not currently in the /proc/143/fd directory.
+Please use the `cd` utility to change directory appropriately.
+hacker@paths~position-yet-elsewhere:~$ cd /proc/143/fd
+hacker@paths~position-yet-elsewhere:/proc/143/fd$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+```
+
+## Flag:
+
+pwn.college{YVJq_MfztpAsv7-jW24IkIMmh10.QX4QTN0wyNzAzNzEzW}
+
+### Notes:
+-This challenge was very similar to last one the concept and working was same as challenge 3 and 4<br>
+-Only difference was that in this challenge separate lines in the terminals were used in challenge 3 and is exactly the same as challenge 4
+
+
 
 
 
