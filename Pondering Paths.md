@@ -82,11 +82,11 @@ This challenge will require you to execute the /challenge/run program from a spe
 ## Solution:
 
 -After the terminal comes up the user will invoke the path of ```run``` file via ```challenge``` to access the run file.<br>
-An error will show up telling us to change the directory and will tell the path of the directory in which the file is present.<br>
-The user will change the directory to the one the system gave using the cd command on the terminal.<br>
+-An error will show up telling us to change the directory and will tell the path of the directory in which the file is present.<br>
+-The user will change the directory to the one the system gave using the ```cd``` command on the terminal.<br>
 Now run the file and capture the flag.
 
-### Comaands run:
+### Commands run:
 
 ```sh
 hacker@paths~position-thy-self:~$ /challenge/run
@@ -125,6 +125,35 @@ As an aside, now you can see what the ~ was in the prompt! It shows the current 
 This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you). You'll need to cd to that directory before rerunning the challenge program. 
 
 ## Solution:
+
+-Firstly on opening the terminal, I tried to run the ```run``` command in the ```challenge``` directory<br>
+-Then the shell showed displayed error and displayed the path for the ```run``` file<br>
+-Then use ```cd``` to change the directory to the given one<br>
+-Then use /challenge/run as now the required directory is opened and capture the flag<br>
+
+### Commands run:
+
+```sh
+hacker@paths~position-elsewhere:~$ /challenge/run
+Incorrect...
+You are not currently in the /usr/include directory.
+Please use the `cd` utility to change directory appropriately.
+hacker@paths~position-elsewhere:~$ cd /usr/include directory
+bash: cd: too many arguments
+hacker@paths~position-elsewhere:~$ cd /usr/include
+hacker@paths~position-elsewhere:/usr/include$ /challenge/run
+```
+
+## Flag:
+
+pwn.college{weWWMuhMxAgB162XwM_y1rkdQDJ.QX3QTN0wyNzAzNzEzW}
+
+### Notes:
+-This challenge was very similar to last one the concept and working was same as challenge 3<br>
+-Only difference was that in this challenge separate lines in the terminals were used
+
+
+
 
 
 
