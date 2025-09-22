@@ -58,7 +58,15 @@ So the directory concept which got a bit mangled got cleared in this challenge
 
 
 
-# Position thyself
+# Position Thyself
+
+This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you). You'll need to cd to that directory before rerunning the challenge program.
+
+## Solution:
+After the terminal comes up the user will invoke the path of run viqa challenge to access the run file.<br>
+An error will show up telling us to change the directory and will tell the path of the directory in which the file is present.<br>
+The user will change the directory using the cd command on the terminal.<br>
+
 
 
 
