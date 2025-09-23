@@ -15,8 +15,8 @@ In this level, invoke the hello command to get the flag! Keep in mind: commands 
 ## Solution:
 
 -First the user will connected his Ubuntu terminal to pwn.college host using ssh command.<br>
--After connecting type the ```hello``` command in the terminal.<br> 
--```hello``` command will be invoked. This was the asked challenege and after this capture the flag.<br>
+-After connecting type the `hello` command in the terminal.<br> 
+-`hello` command will be invoked. This was the asked challenege and after this capture the flag.<br>
 
 ### Commands run:
 
@@ -28,15 +28,15 @@ hacker@hello~intro-to-commands:~$ hello
 
 ## Flag:
 
-```
+`
 pwn.college{0e9QujOjmIdmozqiGW-iQRA4hJN.QX3YjM1wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
 -While solving this challenge I learnt how to connect my desktop ubuntu to the host pwn.college<br>
 -I learnt what a command is and how it is run.<br>
--The ```$``` at the end of the prompt shows that the user is not an administrative user.<br>
+-The `$` at the end of the prompt shows that the user is not an administrative user.<br>
 -Commands in linux are case sensitive
 
 
@@ -50,6 +50,7 @@ hacker@dojo:~$ echo Hello
 Hello
 hacker@dojo:~$
 ```
+
 In this case, the command was echo, and the argument was Hello. echo is a simple command that "echoes" all of its arguments back out onto the terminal, like you see in the session above.
 
 Let's look at echo with multiple arguments:
@@ -59,6 +60,7 @@ hacker@dojo:~$ echo Hello Hackers!
 Hello Hackers!
 hacker@dojo:~$
 ```
+
 In this case, the command was echo, and Hello and Hackers! were the two arguments to echo. Simple!
 
 In this challenge, to get the flag, you must run the hello command (NOT the echo command) with a single argument of hackers. 
@@ -79,9 +81,9 @@ hacker@hello~intro-to-arguments:~$ hello hackers
 
 ## Flag:
 
-```
+`
 pwn.college{cjP5MboIa6pyP2AQUTVqj9wB403.QX4YjM1wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
@@ -106,15 +108,15 @@ You can scroll through those saved commands with the up/down arrow keys, and we'
 ### Commands run:
 
 ```sh
-```up``` arrow key to scroll to previous command
+`up` arrow key to scroll to previous command
 hacker@hello~command-history:~$ the flag is pwn.college{QNBfhOym3W6fuqruW5d-Qrd9rCP.0lNzEzNxwyNzAzNzEzW}
 ```
 
 ## Flag:
 
-```
+`
 pwn.college{QNBfhOym3W6fuqruW5d-Qrd9rCP.0lNzEzNxwyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
