@@ -52,4 +52,38 @@ Finally, if you give no arguments at all, cat will read from the terminal input 
 
 
 
+# Challenge 2 Catting absolute paths
+
+In this directory, I will not copy it to your home directory, but I will make it readable. You can read it with cat at its absolute path: /flag.
+
+## Solution:
+
+-Here also I used cat to read the file flag but this time we didn't had to distract it from the home directory but from `/flag`
+
+### Commands used:
+
+`
+hacker@commands~catting-absolute-paths:~$ cat /flag
+`
+
+## Flag:
+
+`
+pwn.college{M5vjmiWC1z56TE3ZguumXlc5to5.QX5ETO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-Here in this challenge, I learnt that you can specify cat's arguments as absolute paths not compulsarily from the home directory<br>
+-Apart from this this challenge was pretty much the same as challenge 1
+
+
+
+# Challenge 3 More Catting Practice
+
+
+
+
+
+
 
