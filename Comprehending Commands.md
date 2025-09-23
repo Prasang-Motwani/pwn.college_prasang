@@ -156,6 +156,20 @@ Invoked like this, grep will search the file for lines of text containing SEARCH
 
 
 
+# Comparing Files
+
+There are two files in /challenge:
+
+/challenge/decoys_only.txt contains 100 fake flags
+/challenge/decoys_and_real.txt contains all 100 fake flags plus the one real flag
+Use diff to find what's different between these files and get your flag
+
+## Solution
+
+
+
+
+
 
 
 
