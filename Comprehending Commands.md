@@ -146,6 +146,7 @@ There are many ways to grep, and we'll learn one way here:
 `
 hacker@dojo:~$ grep SEARCH_STRING /path/to/file
 `
+<br>
 Invoked like this, grep will search the file for lines of text containing SEARCH_STRING and print them to the console.
 
 <br>
