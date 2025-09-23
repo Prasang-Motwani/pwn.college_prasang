@@ -150,13 +150,13 @@ hacker@dojo:~$ grep SEARCH_STRING /path/to/file
 Invoked like this, grep will search the file for lines of text containing SEARCH_STRING and print them to the console.
 
 <br>
--I was a bit confused in the syntax of grep command which is evident from the commands used section
+-I was a bit confused in the syntax of `grep` command which is evident from the commands used section
 <br>
--I was using "SEARCH_pwn.college" and not "pwn.college" as I thought to follow the search and string part word to word as Syntax in linux is very particular so I had to use reference to confirm the syntax of grep command in linux
+-I was using "SEARCH_pwn.college" and not "pwn.college" as I thought to follow the search and string part word to word as Syntax in linux is very particular so I had to use reference to confirm the syntax of `grep` command in linux
 
 
 
-# Comparing Files
+# Challenge 5 Comparing Files
 
 There are two files in /challenge:
 
@@ -164,7 +164,68 @@ There are two files in /challenge:
 /challenge/decoys_and_real.txt contains all 100 fake flags plus the one real flag
 Use diff to find what's different between these files and get your flag
 
-## Solution
+## Solution:
+
+-In this challenge when the terminal opened up I used the `diff` command to separate between the 2 files as it was told that one file had 100 fake flags and the other one had the same 100 fake flags and 1 real flag
+<br>
+-So I used `diff` command to capture the flag
+
+### Commands used:
+
+`
+hacker@commands~comparing-files:~$ diff /challenge/decoys_only.txt /challenge/decoys_and_real.txt
+`
+
+## Flag:
+
+`
+pwn.college{oSldvOk8a2Se1iNUEvdOHwL48LE.01MwMDOxwyNzAzNzEzW}
+`
+
+### Notes
+
+-In this challenge I understood the working of the `diff` command
+<br>
+
+When looking for changes between similar files, eyeballing them might not be the most efficient approach! This is where the diff command becomes invaluable.
+
+diff compares two files line by line and shows you exactly what's different between them. For example:
+
+```
+hacker@dojo:~$ cat file1
+hello
+world
+hacker@dojo:~$ cat file2
+hello
+universe
+hacker@dojo:~$ diff file1 file2
+2c2
+< world
+---
+> universe
+```
+
+The output tells us that line 2 changed (2c2), with world in the first file (<) being replaced by universe in the second file (>).
+
+Sometimes, when new lines are added, you'll see something like:
+
+```
+hacker@dojo:~$ cat old
+pwn
+hacker@dojo:~$ cat new
+pwn
+college
+hacker@dojo:~$ diff old new
+1a2
+> college
+```
+This tells us that after line 1 in the first file, the second file has an additional line (1a2 means "after line 1 of file1, add line 2 of file2").
+
+
+
+
+
+
 
 
 
