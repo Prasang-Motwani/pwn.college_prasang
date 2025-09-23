@@ -19,9 +19,9 @@ hacker@paths~the-root:~$ /pwn
 
 ## Flag:
 
-```
+`
 pwn.college{gDXqAS_YxIyiTvhTYQ8ooGTJXiZ.QX4cTO0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
@@ -47,15 +47,15 @@ This challenge again requires you to execute it by invoking its absolute path. Y
 
 ### Commands used:
 
-```sh
+`
 hacker@paths~program-and-absolute-paths:~$ /challenge/run
-```
+`
 
 ## Flag:
 
-```
+`
 pwn.college{wFL4T4HyGJ09DL81GqlS9FYwbMY.QX1QTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
@@ -69,10 +69,12 @@ pwn.college{wFL4T4HyGJ09DL81GqlS9FYwbMY.QX1QTN0wyNzAzNzEzW}
 # Challenge 3 Position Thyself
 
 The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the cd (change directory) command and passing a path to it as an argument, as so:
+
 ```
 hacker@dojo:~$ cd /some/new/directory
 hacker@dojo:/some/new/directory$
 ```
+
 This affects the "current working directory" of your process (in this case, the bash shell). Each process has a directory in which it's currently hanging out. The reasons for this will become clear later in the module.
 
 As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.
@@ -99,9 +101,9 @@ hacker@paths~position-thy-self:/usr/aarch64-linux-gnu/include/gnu$ /challenge/ru
 
 ## Flag:
 
-```
+`
 pwn.college{0xesnk3h_h94DMAcO7eY7I3hvT4.QX2QTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
@@ -118,6 +120,7 @@ The Linux filesystem has tons of directories with tons of files. You can navigat
 hacker@dojo:~$ cd /some/new/directory
 hacker@dojo:/some/new/directory$
 ```
+
 This affects the "current working directory" of your process (in this case, the bash shell). Each process has a directory in which it's currently hanging out. The reasons for this will become clear later in the module.
 
 As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.
@@ -146,9 +149,9 @@ hacker@paths~position-elsewhere:/usr/include$ /challenge/run
 
 ## Flag:
 
-```
+`
 pwn.college{weWWMuhMxAgB162XwM_y1rkdQDJ.QX3QTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 -This challenge was very similar to last one the concept and working was same as challenge 3<br>
@@ -159,10 +162,12 @@ pwn.college{weWWMuhMxAgB162XwM_y1rkdQDJ.QX3QTN0wyNzAzNzEzW}
 # Challenge 5 Position yet elsewhere
 
 The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the cd (change directory) command and passing a path to it as an argument, as so:
+
 ```
 hacker@dojo:~$ cd /some/new/directory
 hacker@dojo:/some/new/directory$
 ```
+
 This affects the "current working directory" of your process (in this case, the bash shell). Each process has a directory in which it's currently hanging out. The reasons for this will become clear later in the module.
 
 As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.
@@ -191,9 +196,9 @@ Correct!!!
 
 ## Flag:
 
-```
+`
 pwn.college{YVJq_MfztpAsv7-jW24IkIMmh10.QX4QTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 -This challenge was very similar to last one the concept and working was same as challenge 3 and 4<br>
@@ -212,9 +217,9 @@ Let's try it here! You'll need to run /challenge/run using a relative path while
 
 ## Solution:
 
--Firstly it was quite obvious seeing the hint that the relative path starts from challenge so I tried typing challenge/run but the shell displayed ```bash: challenge/run: No such file or directory```<br>
+-Firstly it was quite obvious seeing the hint that the relative path starts from challenge so I tried typing challenge/run but the shell displayed `bash: challenge/run: No such file or directory`<br>
 -Then on the terminal I tried to run the file as I did in previous 3 challenges thinking that the correct path would be displayed on the shell after showing error and it told that I am not in the / directory<br>
--So first I opened the / directory using ```cd``` command and then typed challenge/run and captured the flag.
+-So first I opened the / directory using `cd` command and then typed challenge/run and captured the flag.
 
 ### Commands used:
 
@@ -232,9 +237,9 @@ challenge/run is a relative path, invoked from the right directory!
 
 ## Flag:
 
-```
+`
 pwn.college{g0_CrP3RWJNaZA4QHjBUQwGY2_7.QX5QTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 -Firstly I learnt in this challenge:<br>
@@ -276,9 +281,9 @@ Correct!!!
 
 ## Flag:
 
-```
+`
 pwn.college{0dQMXboY8kENjuQCaDDYJVqk2jF.QXwUTN0wyNzAzNzEzW}
-```
+`
 
 ### Notes:
 
@@ -321,9 +326,9 @@ Correct!!!
 
 ## Flag:
 
-```
+`
 pwn.college{cnseZ6MaWSJr8AGiUe3yt70S862.QXxUTN0wyNzAzNzEzW}
-```
+`
 
 ## Notes:
 
@@ -336,9 +341,10 @@ hacker@dojo:/challenge$ run
 ```
 This will not invoke /challenge/run. This is actually a safety measure: if Linux searched the current directory for programs every time you entered a naked path, you could accidentally execute programs in your current directory that happened to have the same names as core system utilities! As a result, the above commands will yield the following error:
 
-```
+`
 bash: run: command not found
-```
+`
+
 <br>
 Hence we used the relative path to to launch ```run``` in this scenario by using ```./run``` intead of ```run``` to ensure Linux OS that yes we do want to launch the ```run``` file in the challenge directory
 
