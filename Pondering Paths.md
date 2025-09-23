@@ -13,9 +13,9 @@ Start the challenge, launch a terminal, invoke the pwn program using its absolut
 -The flag will be displayed, capture the flag.<br>
 
 ### Commands run:
-```sh
+`
 hacker@paths~the-root:~$ /pwn
-```
+`
 
 ## Flag:
 
