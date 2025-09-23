@@ -182,7 +182,7 @@ hacker@commands~comparing-files:~$ diff /challenge/decoys_only.txt /challenge/de
 pwn.college{oSldvOk8a2Se1iNUEvdOHwL48LE.01MwMDOxwyNzAzNzEzW}
 `
 
-### Notes
+### Notes:
 
 -In this challenge I understood the working of the `diff` command
 <br>
@@ -220,6 +220,96 @@ hacker@dojo:~$ diff old new
 > college
 ```
 This tells us that after line 1 in the first file, the second file has an additional line (1a2 means "after line 1 of file1, add line 2 of file2").
+
+
+
+# Challenge 6 listing files
+
+In this challenge, pwn college has named /challenge/run with some random name! List the files in /challenge to find it.
+
+# Solution:
+
+-First when the terminal opened up I used `ls` to see the updated name of `run` using ls /challenge 
+<br>
+-Then I just typed `ls` to see the contents in the directory and found a file named "a" with a flag but it was a fake one
+<br>
+-I tried to read the the new file given to us by ls /challenge by `cat` but it was showing no directory or file by this name
+<br>
+-Then I used `cd` to change the directory to ls and used the same `ls` command to no fruitition
+<br>
+-Then I catted the file and I thought I will get the flag by `cat /flag` now but was again fooled as it showed permission denied<br>
+-Then instead to reading the file I tried to execute it and I finally captured the flag
+
+### Commands used:
+
+```sh
+hacker@commands~listing-files:~$ ls /challenge
+21727-renamed-run-5682  DESCRIPTION.md
+hacker@commands~listing-files:~$ ls
+a
+hacker@commands~listing-files:~$ cat a
+pwn.college{sX_fRV1qq9nehY5HL7PbgJ60XyR.QXzMDO0wyNzAzNzEzW}
+hacker@commands~listing-files:~$ cat DESCRIPTION.md
+cat: DESCRIPTION.md: No such file or directory
+cat: run-5682: No such file or directory
+hacker@commands~listing-files:~$ cat 21727-renamed-run-5682
+cat: 21727-renamed-run-5682: No such file or directory
+hacker@commands~listing-files:~$ cd /challenge
+hacker@commands~listing-files:/challenge$ ls
+21727-renamed-run-5682  DESCRIPTION.md
+hacker@commands~listing-files:/challenge$ cat 21727-renamed-run-5682
+#!/opt/pwn.college/bash
+
+echo "Yahaha, you found me! Here is your flag:"
+cat /flag
+hacker@commands~listing-files:/challenge$ cat /flag
+cat: /flag: Permission denied
+hacker@commands~listing-files:/challenge$ /21727-renamed-run-5682
+bash: /21727-renamed-run-5682: No such file or directory
+hacker@commands~listing-files:/challenge$ cd
+hacker@commands~listing-files:~$ /challenge/21727-renamed-run-5682
+Yahaha, you found me! Here is your flag:
+pwn.college{4kYo-5JrjE665VUHr96X2Xw3h8C.QX4IDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{4kYo-5JrjE665VUHr96X2Xw3h8C.QX4IDO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-I learnt:
+
+```
+So far, we've told you which files to interact with. But directories can have lots of files (and other directories) inside them, and we won't always be here to tell you their names. You'll need to learn to list their contents using the ls command!
+
+ls will list files in all the directories provided to it as arguments, and in the current directory if no arguments are provided. Observe:
+
+hacker@dojo:~$ ls /challenge
+run
+hacker@dojo:~$ ls
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$ ls /home/hacker
+Desktop    Downloads  Pictures  Templates
+Documents  Music      Public    Videos
+hacker@dojo:~$
+```
+
+-I also was accustommed to a bit straightforwardness in finding the flag which this challenge was not
+<br>
+-I really enjoyed doing it but I think it was dragged alot and many line of codes were redundant from my side
+
+
+
+# Challenge 7 touching files
+
+
+
+
+
 
 
 
