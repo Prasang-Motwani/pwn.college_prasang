@@ -353,7 +353,55 @@ hacker@dojo:/tmp$
 
 
 
-# Challenge 8 
+# Challenge 8 removing files
+
+This challenge will create a delete_me file in your home directory! Delete it, then run /challenge/check, which will make sure you've deleted it and then give you the flag
+
+## Solution:
+
+-When the terminal opened up I used the `rm` command to remove or delete the asked file which was "delete_me"
+<br>
+-Then I used `ls` to check whether it was deleted or not
+<br>
+-Then I executed /challenge/check to capture the flag
+
+### Commands used:
+
+```sh
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ ls
+a
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{4fbLaw3QAi5BgzarHcu5mBZ8mFP.QX2kDM1wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{4fbLaw3QAi5BgzarHcu5mBZ8mFP.QX2kDM1wyNzAzNzEzW}
+`
+
+### Notes:
+-In this challenge i used how to delete or remove a file using `rm` command
+<br>
+-Sample syntax:
+<br>
+```
+hacker@dojo:~$ touch PWN
+hacker@dojo:~$ touch COLLEGE
+hacker@dojo:~$ ls
+COLLEGE     PWN
+hacker@dojo:~$ rm PWN
+hacker@dojo:~$ ls
+COLLEGE
+hacker@dojo:~$
+```
+
+
+
+# Challenge 9 Moving files
+
 
 
 
