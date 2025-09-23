@@ -346,7 +346,92 @@ Hence we used the relative path to to launch ```run``` in this scenario by using
 
 # Challenge 9 Home sweet Home
 
+In this challenge, /challenge/run will write a copy of the flag to any file you specify as an argument on the commandline, with these constraints:
 
+Your argument must be an absolute path.
+The path must be inside your home directory.
+Before expansion, your argument must be three characters or less.
+Again, you must specify your path as an argument to /challenge/run as so:
+`
+hacker@dojo:~$ /challenge/run YOUR_PATH_HERE
+`
+
+## Solution:
+
+-First it was given that the argument can't be more then three letters for the path before expansion so it was pretty obvious that the desrireed path is `/home/hacker` as before expansion it is `~`<br>
+-The "before expansion" path gave it away<br>
+-Then I tried to view any file in the `~` diretory using `ls` to include it the path<br>
+-After find nothing there I accessed the hidden files by `ls -a` and found a file named "."<br>
+-But cat was not working with "." file so while copying the flag using `/challenge/run` I created a new file and gave it a name "a" while creating path for the flag to be copied by:`/challenge/run ~/a` <br>
+-Then I viewed the content of the file using `cat a` and captured the flag<br>
+
+
+### Commands used:
+
+```sh
+hacker@paths~home-sweet-home:~$ /challenge/run ~
+Writing the file to /home/hacker!
+/challenge/run: line 29: /home/hacker: Is a directory
+... and reading it back to you:
+cat: /home/hacker: Is a directory
+hacker@paths~home-sweet-home:~$ ls
+hacker@paths~home-sweet-home:~$ cat
+hacker@paths~home-sweet-home:~$ ls -a
+.  ..  .bash_history  .config
+hacker@paths~home-sweet-home:~$ /challenge.run ~/.
+bash: /challenge.run: No such file or directory
+hacker@paths~home-sweet-home:~$ /challenge/run ~/a
+Writing the file to /home/hacker/a!
+... and reading it back to you:
+pwn.college{sX_fRV1qq9nehY5HL7PbgJ60XyR.QXzMDO0wyNzAzNzEzW}
+hacker@paths~home-sweet-home:~$ cat a
+pwn.college{sX_fRV1qq9nehY5HL7PbgJ60XyR.QXzMDO0wyNzAzNzEzW}
+```
+
+## Flag:
+`
+pwn.college{sX_fRV1qq9nehY5HL7PbgJ60XyR.QXzMDO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+I learnt that:
+-Every user has a home directory, typically under /home in the filesystem. In the dojo, you are the hacker user, and your home directory is /home/hacker. The home directory is typically where users store most of their personal files. As you make your way through pwn.college, this is where you'll store most of your solutions.
+
+Typically, your shell session will start with your home directory as your current working directory. Consider the initial prompt:
+
+`
+hacker@dojo:~$
+`
+
+The ~ in this prompt is the current working directory, with ~ being shorthand for /home/hacker. Bash provides and uses this shorthand because, again, most of your time will be spent in your home directory. Thus, whenever bash sees ~ provided as the start of an argument in a way consistent with a path, it will expand it to your home directory. Consider:
+
+```
+hacker@dojo:~$ echo LOOK: ~
+LOOK: /home/hacker
+hacker@dojo:~$ cd /
+hacker@dojo:/$ cd ~
+hacker@dojo:~$ cd ~/asdf
+hacker@dojo:~/asdf$ cd ~/asdf
+hacker@dojo:~/asdf$ cd ~
+hacker@dojo:~$ cd /home/hacker/asdf
+hacker@dojo:~/asdf$
+```
+
+Note that the expansion of ~ is an absolute path, and only the leading ~ is expanded. This means, for example, that ~/~ will be expanded to /home/hacker/~ rather than /home/hacker/home/hacker.
+
+Fun fact: cd will use your home directory as the default destination:
+
+```
+hacker@dojo:~$ cd /tmp
+hacker@dojo:/tmp$ cd
+hacker@dojo:~$
+```
+<br>
+- I also learnt that `ls` lists files, folders and directories and not just files and "." displays our current directory<br>
+-Also I figured out I can create a new file in the process of writing a path like a created the file "a" in this challenge
+
+                                                                                                                                                                                                    
 
 
 
