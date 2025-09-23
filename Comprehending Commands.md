@@ -306,7 +306,54 @@ hacker@dojo:~$
 
 # Challenge 7 touching files
 
+In this level, please create two files: /tmp/pwn and /tmp/college, and run /challenge/run to get your flag
 
+## Solution:
+
+-When the terminal opened I used `cd` to access the tmp directory
+<br>
+-Then I used `touch` command to create 2 files named "pwn" and "college"
+<br>
+-Then I used `ls` command to check whether the files have been created or not
+<br>
+-Then using the `cd` command I went back to the home directory and executed the run file by `/challenge/run` and captured the flag
+
+## Commands used:
+
+```sh
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ touch pwn
+hacker@commands~touching-files:/tmp$ touch college
+hacker@commands~touching-files:/tmp$ ls
+bin  college  hsperfdata_root  pwn  tmp.TpSOPGOVKK
+hacker@commands~touching-files:/tmp$ cd
+hacker@commands~touching-files:~$ /challenge/run
+Success! Here is your flag:
+pwn.college{cmPoZpDSzaNte5k72_73BBZAvlL.QXwMDO0wyNzAzNzEzW}
+```
+
+## Flag:
+`
+pwn.college{cmPoZpDSzaNte5k72_73BBZAvlL.QXwMDO0wyNzAzNzEzW}
+`
+
+### Notes:
+-In this challenge I learnt how to create a file using `touch` command
+<br>
+-Sample syntax:
+<br>
+```
+hacker@dojo:~$ cd /tmp
+hacker@dojo:/tmp$ ls
+hacker@dojo:/tmp$ touch pwnfile
+hacker@dojo:/tmp$ ls
+pwnfile
+hacker@dojo:/tmp$
+```
+
+
+
+# Challenge 8 
 
 
 
