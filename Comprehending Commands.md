@@ -47,3 +47,9 @@ This is my file!
 ```
 
 Finally, if you give no arguments at all, cat will read from the terminal input and output it.
+<br>
+-I learnt what is cat in a nutshell and how to use it
+
+
+
+
