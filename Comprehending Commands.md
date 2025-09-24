@@ -235,9 +235,9 @@ In this challenge, pwn college has named /challenge/run with some random name! L
 <br>
 -I tried to read the the new file given to us by ls /challenge by `cat` but it was showing no directory or file by this name
 <br>
--Then I used `cd` to change the directory to ls and used the same `ls` command to no fruitition
+-Then I used `cd` to change the directory to challenge and used the same `ls` command to no fruitition
 <br>
--Then I catted the file and I thought I will get the flag by `cat /flag` now but was again fooled as it showed permission denied<br>
+-Then I catted the file and I thought I will get the flag by `cat /flag` as it displayed that I found it but was again fooled as it showed permission denied<br>
 -Then instead to reading the file I tried to execute it and I finally captured the flag
 
 ### Commands used:
@@ -402,8 +402,108 @@ hacker@dojo:~$
 
 # Challenge 9 Moving files
 
+This challenge wants you to move the /flag file into /tmp/hack-the-planet (do it)! When you're done, run /challenge/check, which will check things out and give the flag to you.
+
+## Solution:
+
+-I moved the given file "/flag" to the given location i.e. "/tmp/hack-the-planet" 
+<br>
+-Then I ran "/challenge/check" and captured the flag
+
+### Commands used:
+
+```sh
+hacker@commands~moving-files:~$ mv /flag /tmp/hack-the-planet
+Correct! Performing 'mv /flag /tmp/hack-the-planet'.
+hacker@commands~moving-files:~$ /challenge/check
+Congrats! You successfully moved the flag to /tmp/hack-the-planet! Here it is:
+pwn.college{IoM14cQ2WDMG245IpYoI-4IqKeY.0VOxEzNxwyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{IoM14cQ2WDMG245IpYoI-4IqKeY.0VOxEzNxwyNzAzNzEzW}
+`
+
+### Notes:
+-I leant that how to use the move command to change the location of files
+<br>
+-Here is a sample syntax:
+<br>
+```
+hacker@dojo:~$ ls
+my-file
+hacker@dojo:~$ cat my-file
+PWN!
+hacker@dojo:~$ mv my-file your-file
+hacker@dojo:~$ ls
+your-file
+hacker@dojo:~$ cat your-file
+PWN!
+hacker@dojo:~$
+```
 
 
+
+# Challenge 10 Hidden files
+
+In this challenge we have to find the hidden flag, hidden as a dot-prepended file in /.
+
+## Solution
+
+- First it was written that the hidden file is iin the `/` directory so I went into that directory by `cd` command
+ <br>
+ -Then I tried to execute the file where in the shell displayed permission denied so I tried to read the flag using the `cat` command and captured the flag
+
+  ### Commands used:
+
+```sh
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls -a
+.   .dockerenv            bin   challenge  etc   lib    lib64   media  nix  proc  run   srv  tmp  var
+..  .flag-30205249219892  boot  dev        home  lib32  libx32  mnt    opt  root  sbin  sys  usr
+hacker@commands~hidden-files:/$ /.flag-30205249219892
+bash: /.flag-30205249219892: Permission denied
+hacker@commands~hidden-files:/$ cat .flag-30205249219892
+pwn.college{4zWD05UKatxqezf7KgTOdUkAZ16.QXwUDO0wyNzAzNzEzW}
+```
+
+## Flag
+
+pwn.college{4zWD05UKatxqezf7KgTOdUkAZ16.QXwUDO0wyNzAzNzEzW}
+
+## Notes 
+-In this challenge I learnt that we can't view all the files using `ls` commands some files are hidden 
+<br>
+-We can view them using the `ls -a` command.
+<br>
+
+-A sample of the above this:
+
+```
+hacker@dojo:~$ touch pwn
+hacker@dojo:~$ touch .college
+hacker@dojo:~$ ls
+pwn
+hacker@dojo:~$ ls -a
+.college	pwn
+hacker@dojo:~$
+```
+
+
+
+# Challenge An Epic filesystem Quest
+
+In this challenge, I have hidden the flag! Here, you will use ls and cat to follow my breadcrumbs and find it! Here's how it'll work:
+
+Your first clue is in /. Head on over there.
+Look around with ls. There'll be a file named HINT or CLUE or something along those lines!
+cat that file to read the clue!
+Depending on what the clue says, head on over to the next directory (or don't!).
+Follow the clues to the flag
+
+## Solution
 
 
 
