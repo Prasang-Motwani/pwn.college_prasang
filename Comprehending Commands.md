@@ -471,9 +471,11 @@ pwn.college{4zWD05UKatxqezf7KgTOdUkAZ16.QXwUDO0wyNzAzNzEzW}
 
 ## Flag
 
+`
 pwn.college{4zWD05UKatxqezf7KgTOdUkAZ16.QXwUDO0wyNzAzNzEzW}
+`
 
-## Notes 
+### Notes 
 -In this challenge I learnt that we can't view all the files using `ls` commands some files are hidden 
 <br>
 -We can view them using the `ls -a` command.
@@ -505,9 +507,133 @@ Follow the clues to the flag
 
 ## Solution
 
+-This was by far the toughest and longest challenge I encountered till now
+<br>
+-The first steps were easy enough first I opened `/` using `cd` and then I did `ls` and found the next file wherein the clue was stored named "INSIGHT" and I catted it
+<br>
+-"/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache_" This was next the destination wherein the next file was hidden so I did `ls -a`and found the next file named ".POINTER" so I catted it and it gave the next location
+<br>
+-After this point I self destructed some points(I tried various things like moving, grepping creating a new file and moving into that and many other things but permission denied was showing and catting and cding was leading to self destruction of files)
+<br>
+-After a bit of time I tried to use `ls` and write the full path into it so as to not enter that particular directory as I figured out by catting or cding I ws entering that directory but by `ls` I was just listing and not entering
+<br>
+-Then I repeated this `ls` and `cd` many times in a loop as per the clue directed me and finally I captured the flag
+
+### Commands used:
+
+```sh
+hacker@commands~an-epic-filesystem-quest:~$ cd /
+hacker@commands~an-epic-filesystem-quest:/$ ls
+INSIGHT  boot       dev  flag  lib    lib64   media  nix  proc  run   srv  tmp  var
+bin      challenge  etc  home  lib32  libx32  mnt    opt  root  sbin  sys  usr
+hacker@commands~an-epic-filesystem-quest:/$ cat INSIGHT
+Yahaha, you found me!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/$ cd /usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ ls -a
+.                        cgc.cpython-38.pyc     snimmuc_nxp.cpython-38.pyc
+..                       javavm.cpython-38.pyc  userland.cpython-38.pyc
+.POINTER                 linux.cpython-38.pyc   windows.cpython-38.pyc
+__init__.cpython-38.pyc  simos.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ cat .POINTER
+Lucky listing!
+The next clue is in: /opt/linux/linux-5.4/sound/soc/adi
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ ls /opt/linux/linux-5.4/sound/soc/adi
+Kconfig  Makefile  SECRET-TRAPPED  axi-i2s.c  axi-spdif.c
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ cat /opt/linux/linux-5.4/sound/soc/adi/SECRET-TRAPPED
+Great sleuthing!
+The next clue is in: /opt/linux/linux-5.4/include/config/strict/kernel
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ ls /opt/linux/linux-5.4/include/config/strict/kernel
+ALERT-TRAPPED  rwx.h
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ cat /opt/linux/linux-5.4/include/config/strict/kernel/ALERT-TRAPPED
+Congratulations, you found the clue!
+The next clue is in: /usr/lib/x86_64-linux-gnu/perl/5.30.0/auto/Encode/Unicode
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ ls -a /usr/lib/x86_64-linux-gnu/perl/5.30.0/auto/Encode/Unicode
+.  ..  .TEASER  Unicode.so
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ cat /usr/lib/x86_64-linux-gnu/perl/5.30.0/auto/Encode/Unicode/.TEASER
+Congratulations, you found the clue!
+The next clue is in: /usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/angr/simos/__pycache__$ cd /usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ ls
+GIST  Main.js
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ file GIST
+GIST: ASCII text
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ cat GIST
+Tubular find!
+The next clue is in: /usr/share/racket/pkgs/htdp-lib/htdp/bsl/compiled
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ ls -a /usr/share/racket/pkgs/htdp-lib/htdp/bsl/compiled
+.   HINT                 print-width_rkt.zo  reader_rkt.zo    runtime_rkt.zo
+..  print-width_rkt.dep  reader_rkt.dep      runtime_rkt.dep
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ file /usr/share/racket/pkgs/htdp-lib/htdp/bsl/compiled/HINT
+/usr/share/racket/pkgs/htdp-lib/htdp/bsl/compiled/HINT: ASCII text
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ cat /usr/share/racket/pkgs/htdp-lib/htdp/bsl/compiled/HINT
+Lucky listing!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/Misc/Regular$ cd /usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations$ ls -a
+.  ..  INFO  fr_FR
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations$ cat INFO
+Congratulations, you found the clue!
+The next clue is in: /usr/share/racket/pkgs/compatibility-lib/mzlib
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations$ ls -a /usr/share/racket/pkgs/compatibility-lib/mzlib
+.                  control.rkt      md5.rkt           stxparam.rkt
+..                 date.rkt         os.rkt            surrogate.rkt
+NUGGET             deflate.rkt      plt-match.rkt     tar.rkt
+a-signature.rkt    defmacro.rkt     port.rkt          thread.rkt
+a-unit.rkt         etc.rkt          pregexp.rkt       trace.rkt
+async-channel.rkt  file.rkt         pretty.rkt        traceld.rkt
+awk.rkt            for.rkt          private           trait.rkt
+class.rkt          foreign.rkt      process.rkt       transcr.rkt
+cm-accomplice.rkt  include.rkt      restart.rkt       unit-exptime.rkt
+cm.rkt             inflate.rkt      runtime-path.rkt  unit.rkt
+cmdline.rkt        info.rkt         sandbox.rkt       unit200.rkt
+cml.rkt            integer-set.rkt  sendevent.rkt     unitsig.rkt
+compat.rkt         kw.rkt           serialize.rkt     unitsig200.rkt
+compile.rkt        list.rkt         shared.rkt        zip.rkt
+compiled           match.rkt        string.rkt
+contract.rkt       math.rkt         struct.rkt
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations$ cat /usr/share/racket/pkgs/compatibility-lib/mzlib/NUGGET
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/tornado/test/gettext_translations$ cat /usr/share/racket/pkgs/compatibility-lib/mzlib/NUGGET
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{0K5vgipgTZ4mfiAJQgW2DsY3yRa.QX5IDO0wyNzAzNzEzW}
+```
+
+## Flag :
+
+`
+pwn.college{0K5vgipgTZ4mfiAJQgW2DsY3yRa.QX5IDO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-A lot of redundant steps taken by me 
+<br>
+-I did cd into the file to see what the self destruction would like, I was curious
+<br>
+-Then I catted it but that also led to self destruction of the flag
+<br>
+-I also tried creating a new file and moving that file there, grepping "pwn", comparing it with other files using `diff`
+<br>
+-Then I finally listed it as I realised listing its contents is not entering it and then repeated the steps of `ls` , `cd` and `cat` as directed by the next clue and at at point I thought I was going wrong as the process was seemingly too long but I persisted and captured the flag
+
+
+
 # Challenge 12 Making Directories 
 
-To create a /tmp/pwn directory and make a college file in it! Then run /challenge/run, which will check your solution and give you the flag
+-To create a /tmp/pwn directory and make a college file in it! Then run /challenge/run, which will check your solution and give you the flag
 
 ## Solution
 
@@ -531,7 +657,9 @@ pwn.college{YDot-fED7sOBHZ2FslZnVSsq5pB.QXxMDO0wyNzAzNzEzW}
 
 ## Flag:
 
+`
 pwn.college{YDot-fED7sOBHZ2FslZnVSsq5pB.QXxMDO0wyNzAzNzEzW}
+`
 
 ### Notes:
 
