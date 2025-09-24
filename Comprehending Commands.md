@@ -493,7 +493,7 @@ hacker@dojo:~$
 
 
 
-# Challenge An Epic filesystem Quest
+# Challenge 11 An Epic filesystem Quest
 
 In this challenge, I have hidden the flag! Here, you will use ls and cat to follow my breadcrumbs and find it! Here's how it'll work:
 
@@ -504,6 +504,40 @@ Depending on what the clue says, head on over to the next directory (or don't!).
 Follow the clues to the flag
 
 ## Solution
+
+# Challenge 12 Making Directories 
+
+To create a /tmp/pwn directory and make a college file in it! Then run /challenge/run, which will check your solution and give you the flag
+
+## Solution
+
+-I created a directory "/tmp/pwn" using the `mkdir` command
+<br>
+-Then I created a file "college" in the directory created above using `touch` command
+<br>
+-Then I ran "/challenge/run" and captured the flag
+
+
+### Commands used:
+
+```sh
+hacker@commands~making-directories:~$ mkdir /tmp/pwn
+hacker@commands~making-directories:~$ cd /tmp/pwn
+hacker@commands~making-directories:/tmp/pwn$ touch college
+hacker@commands~making-directories:/tmp/pwn$ /challenge/run
+Success! Here is your flag:
+pwn.college{YDot-fED7sOBHZ2FslZnVSsq5pB.QXxMDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+pwn.college{YDot-fED7sOBHZ2FslZnVSsq5pB.QXxMDO0wyNzAzNzEzW}
+
+### Notes:
+
+In this challenge I learnt how to use the create new directories using the `mkdir` command
+
+
 
 
 
