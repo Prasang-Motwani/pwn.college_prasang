@@ -210,10 +210,60 @@ HINT 1: man man teaches you advanced usage of the man command itself, and you mu
 
 HINT 2: though the manpage is randomly named, you still actually use /challenge/challenge to get the flag
 
-## Solution
+## Solution:
 
+-First I used the man page for the man page to understand it more effieciently and to grasp its advanced commands
+<br>
+-I tried to search "hidden" or "search" inside the man page of man as it was 490 lines long and wasn't possible to read but nothing came out of it
+<br>
+-Then I I started reading it and found the `-k` command as it searched particular keywords inside the manpage which I thought could be useful
+<br>
+-I searched the keyword "flag" but alot of results came out so I decided to first try out another keyword and find a comman intersection point
+<br>
+-I searched the keyword challenge as the comaand was still name "/challenge/challenge" and found it as it had only one and that was in the "flag" keyword search too and its description was literally "printv the flag!"
+<br>
+-Then I ontained the required page and used `man` on it and as one of the previous challenge it had an argument which on giving a certain number which was 664 in my case as a sub argument gave the flag and that's how I captured the flag
+<br>
 
+### Commands used:
 
+```sh
+hacker@man~searching-for-manuals:~$ man man
+hacker@man~searching-for-manuals:~$ man -k flag
+dpkg-buildflags (1)  - returns build flags to use during package build
+Dpkg::BuildFlags (3perl) - query build flags
+dtfkcikmsm (1)       - print the flag!
+fegetexceptflag (3)  - floating-point rounding and exception handling
+fesetexceptflag (3)  - floating-point rounding and exception handling
+i386 (8)             - change reported architecture in new program environment and/or set personality flags
+ioctl_iflags (2)     - ioctl() operations for inode flags
+linux32 (1)          - change reported architecture in new program environment and/or set personality flags
+linux64 (1)          - change reported architecture in new program environment and/or set personality flags
+pcap-config (1)      - write libpcap compiler and linker flags to standard output
+security_compute_av_flags (3) - query the SELinux policy database in the kernel
+security_compute_av_flags_raw (3) - query the SELinux policy database in the kernel
+set_matchpathcon_flags (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity checking and error displaying
+set_matchpathcon_invalidcon (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity checking and error di...
+set_matchpathcon_printf (3) - set flags controlling the operation of matchpathcon or matchpathcon_index and configure the behaviour of validity checking and error displa...
+setarch (1)          - change reported architecture in new program environment and/or set personality flags
+setarch (8)          - change reported architecture in new program environment and/or set personality flags
+x86_64 (8)           - change reported architecture in new program environment and/or set personality flags
+hacker@man~searching-for-manuals:~$ man -k challenge
+dtfkcikmsm (1)       - print the flag!
+hacker@man~searching-for-manuals:~$ man dtfkcikmsm
+hacker@man~searching-for-manuals:~$ /challenge/challenge  --dtfkci 664
+Correct usage! Your flag: pwn.college{ID6dtXJ6fkci49km4ETsKEmc7A-.QX2EDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{ID6dtXJ6fkci49km4ETsKEmc7A-.QX2EDO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-In this challenge I used advanced usage of the `man` command itself by accessing the manual of the `man` command using the `man` command itself
 
 
 
