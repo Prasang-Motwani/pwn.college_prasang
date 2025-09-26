@@ -267,5 +267,114 @@ pwn.college{ID6dtXJ6fkci49km4ETsKEmc7A-.QX2EDO0wyNzAzNzEzW}
 
 
 
+# Challenge 6 Helpful Programs
+
+In this level, you will practice reading a program's documentation with --help. Try it out!
+
+## Solution:
+
+-First it was already told to use the help command so I used the `--help` to access the help page of "/challenge/challenge"
+<br>
+-Then I used "/challenge/challenge -p" to get the secret number to be used with the -g argument. The number it gave me was 473
+<br>
+-Then I used "/challenge/challenge -g 473" and obtained the flag
+
+### Commands used:
+
+```sh
+hacker@man~helpful-programs:~$ /challenge/challenge --help
+usage: a challenge to make you ask for help [-h] [--fortune] [-v] [-g GIVE_THE_FLAG] [-p]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fortune             read your fortune
+  -v, --version         get the version number
+  -g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value
+  -p, --print-value     print the value that will cause the -g option to give you the flag
+hacker@man~helpful-programs:~$ /challenge/challenge -g
+usage: a challenge to make you ask for help [-h] [--fortune] [-v] [-g GIVE_THE_FLAG] [-p]
+a challenge to make you ask for help: error: argument -g/--give-the-flag: expected one argument
+hacker@man~helpful-programs:~$ /challenge/challenge -p
+The secret value is: 473
+hacker@man~helpful-programs:~$ /challenge/challenge -g 473
+Correct usage! Your flag: pwn.college{UzOJtQ-_yA_zbkpMEsZ4UyaNi7w.QX3IDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{UzOJtQ-_yA_zbkpMEsZ4UyaNi7w.QX3IDO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-I learnt what is the `--help` command is and what it does
+<br>
+-Some programs don't have a man page, but might tell you how to run them if invoked with a special argument. Usually, this argument is `--help`, but it can often be -h or, in rare cases, -?, `help`, or other esoteric values like `/`? (though that latter is more frequently encountered on Windows).
+
+
+
+# Challenge 7 Help for builtins
+
+ In this challenge, we'll practice using help to look up help for builtins. This challenge's challenge command is a shell builtin, rather than a program. Like before, you need to lookup its help to figure out the secret value to pass to it!
+
+ ## Solution:
+
+ -First I did "help challenge" for the challenge builtin as asked in the challenge 
+ <br>
+ -From there I found the argument to challenge was secret and the argument to that argument was "MCIbAI1n"
+ <br>
+ -So I wrote the above mentioned command and arguments and captured the flag>
+
+ ### Commands used:
+
+ ```sh
+hacker@man~help-for-builtins:~$ help challenge
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+
+    Options:
+      --fortune         display a fortune
+      --version         display the version
+      --secret VALUE    prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "MCIbAI1n".
+hacker@man~help-for-builtins:~$ challenge --secret MCIbAI1n
+Correct! Here is your flag!
+pwn.college{MCIbAI1nTQ0oPSXLyACpGahDTGo.QX0ETO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{MCIbAI1nTQ0oPSXLyACpGahDTGo.QX0ETO0wyNzAzNzEzW}
+`
+
+### Notes:
+
+-In this challenge I learnt:
+
+Some commands, rather than being programs with man pages and help options, are built into the shell itself. These are called builtins. Builtins are invoked just like commands, but the shell handles them internally instead of launching other programs. You can get a list of shell builtins by running the builtin help, as so:
+
+`
+hacker@dojo:~$ help
+`
+
+You can get help on a specific one by passing it to the help builtin. Let's look at a builtin that we've already used earlier, cd!
+
+```
+hacker@dojo:~$ help cd
+cd: cd [-L|[-P [-e]] [-@]] [dir]
+
+    Change the shell working directory.
+    
+    Change the current directory to DIR.  The default DIR is the value of the
+    HOME shell variable.
+...
+
+```
+
 
 
