@@ -201,4 +201,74 @@ Look: /home/hacker/file_a /home/hacker/file_b
 
 # Challenge 5 Multiple globs
 
+We put a few happy, but diversely-named files in /challenge/files. Go cd there and run /challenge/run, providing a single argument: a short (3 characters or less) globbed word with two * globs in it that covers every word that contains the letter p.
 
+## Solution:
+
+-It was a pretty straightforward challenge 
+<br>
+-Then I changed into the "/challenge/files" using `cd` command
+<br>
+-Then I used multiple globbing by typing "/challenge/run *p*" and captured the flag
+
+### Commands used:
+
+```sh
+hacker@globbing~multiple-globs:~$ cd /challenge/files
+hacker@globbing~multiple-globs:/challenge/files$ /challenge/run *p*
+You got it! Here is your flag!
+pwn.college{oY-P-ekSSwL7BMFbOdscJ2rNS_M.0lM3kjNxwyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{oY-P-ekSSwL7BMFbOdscJ2rNS_M.0lM3kjNxwyNzAzNzEzW}
+`
+
+### Notes:
+
+ Bash supports the expansion of multiple globs in a single word. For example:
+
+```
+hacker@dojo:~$ cat /*fl*
+pwn.college{YEAH}
+hacker@dojo:~$
+```
+
+What happens above is that the shell looks for all files in / that start with anything (including nothing), then have an f and an l, and end in anything (including ag, which makes flag).
+
+
+
+# Challenge 6 Mixing Globs
+
+We put a few happy, but diversely-named files in /challenge/files. Go cd there and, using the globbing you've learned, write a single, short (6 characters or less) glob that (when passed as an argument to /challenge/run) will match the files "challenging", "educational", and "pwning"!
+
+## Solution:
+
+-First I entered the "/challenge/files" directory using the `cd` command
+<br>
+-Then I wrote a mixture of `*` and `[]` by typing "/challenge/run [cep]*" so that the shell would all files starting from "c", "e" and "p" and then put * so that it won't matter what comes after c,e and p and like this I captured the flag
+
+### Commands used:
+
+```sh
+hacker@globbing~mixing-globs:~$ cd /challenge/files
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
+You got it! Here is your flag!
+pwn.college{cuCVH5vK-EVVSBywDvwRUUrKb2C.QX1IDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{cuCVH5vK-EVVSBywDvwRUUrKb2C.QX1IDO0wyNzAzNzEzW}
+`
+
+### Notes
+
+-In this challenge I learnt how to approach problems that have mixyture of globbing that I learnt
+
+
+
+# Challenge 7 Exclusionary Globbing
