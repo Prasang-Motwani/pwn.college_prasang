@@ -272,3 +272,119 @@ pwn.college{cuCVH5vK-EVVSBywDvwRUUrKb2C.QX1IDO0wyNzAzNzEzW}
 
 
 # Challenge 7 Exclusionary Globbing
+
+Go forth to /challenge/files and run /challenge/run with all files that don't start with p, w, or n!
+
+## Solution
+
+-First I entered the "/challenge/files" directory using the `cd` command
+<br>
+-Then I used a mixture of "[]", "!" and "*" by typing "/challenge/run [!pwn]*" so that the shell would give all files that do not start with "p", "w" or "n" and hence I captured the flag([!] means not starting from it and * means anything that comes after it will qualify as the output)
+
+
+
+### Commands used:
+
+```sh
+hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [!pwn]*
+You got it! Here is your flag!
+pwn.college{YIzGE1Qqx5R0LiL2u44dAM1-tvv.QX2IDO0wyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{YIzGE1Qqx5R0LiL2u44dAM1-tvv.QX2IDO0wyNzAzNzEzW}
+`
+
+### Notes
+
+-Sometimes, you want to filter out files in a glob! Luckily, [] helps you do just this. If the first character in the brackets is a ! or (in newer versions of bash) a ^, the glob inverts, and that bracket instance matches characters that aren't listed. For example:
+
+```
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_c
+hacker@dojo:~$ ls
+file_a	file_b	file_c
+hacker@dojo:~$ echo Look: file_[!ab]
+Look: file_c
+hacker@dojo:~$ echo Look: file_[^ab]
+Look: file_c
+hacker@dojo:~$ echo Look: file_[ab]
+Look: file_a file_b
+```
+<br>
+-The ! character has a different special meaning in bash when it's not the first character of a [] glob, so keep that in mind if things stop making sense! ^ does not have this problem, but is also not compatible with older shells.
+<br>
+-The "!" is like when we take a compliment in sets in mathematics
+
+
+
+# Challenge 8 Tab completion
+
+This challenge has copied the flag into /challenge/pwncollege, and you can freely cat that file. But you can't type the filename: we used some serious trickery to make sure that you must tab-complete it. Try it out!
+
+## Solution:
+
+-This challenge was pretty straightforward
+<br>
+-I executed the "hacker@globbing~tab-completion:~$ cat /challenge/pwncollege" command but instead of typing the whole command I pressed the tab key and the terminal auto-completed the command and hence I captured the flag
+
+### Commands used:
+
+```sh
+hacker@globbing~tab-completion:~$ cat /challenge/pwncollege​
+pwn.college{4WP9E5Nsjs_YtPMiOBlhgBLbKPD.0FN0EzNxwyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{4WP9E5Nsjs_YtPMiOBlhgBLbKPD.0FN0EzNxwyNzAzNzEzW}
+`
+
+### Notes:
+
+-As tempting as it might be, using * to shorten what must be typed on the commandline can lead to mistakes. Your glob might expand to unintended files, and you might not spot it until the rm command is already running! No one is safe from this style of error.
+
+A safer alternative when you are trying to specify a specific target is tab completion. If you hit tab in the shell, it'll try to figure out what you're going to type and automatically complete it. Auto-completion is super useful, and this challenge will explore its use in specifying files.
+
+
+
+# Challenge 9 Multiple options for tab completion
+
+This challenge has a /challenge/files directory with a bunch of files starting with pwncollege. Tab-complete from /challenge/files/p or so, and make your way to the flag!
+
+## Solution
+
+
+
+
+
+# Challenge 10 Tab completion on commands
+
+This level has a command that starts with pwncollege, and it'll give you the flag. Type pwncollege and hit the tab key to auto-complete it!
+
+## Solution
+
+-This level was pretty straightforward all I had to do was press tab after writing "pwncollege" and the shell auto completed the command to "pwncollege-31517" and hence I captured the flag
+
+### Commands used:
+
+```sh
+hacker@globbing~tab-completion-on-commands:~$ pwncollege-31517
+Correct! Here is your flag:
+pwn.college{Y8qb3B8P-hWD6sTeBhX0ihVbjZ-.0VN0EzNxwyNzAzNzEzW}
+```
+
+## Flag:
+
+`
+pwn.college{Y8qb3B8P-hWD6sTeBhX0ihVbjZ-.0VN0EzNxwyNzAzNzEzW}
+`
+
+### Notes:
+
+-In this challenge I learnt that the tab key on auto-completion can be used not only files but for commands too
